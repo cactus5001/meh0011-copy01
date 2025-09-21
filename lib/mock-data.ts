@@ -153,3 +153,30 @@ export const mockClinics = [
     total_reviews: 178
   }
 ]
+
+export const mockUsers = [
+  {
+    id: '1',
+    email: 'admin@wanterio.com',
+    full_name: 'Admin User',
+    role: 'admin',
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  },
+  {
+    id: '2',
+    email: 'doctor@wanterio.com',
+    full_name: 'Dr. John Smith',
+    role: 'doctor',
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  },
+  {
+    id: '3',
+    email: 'patient@wanterio.com',
+    full_name: 'Jane Doe',
+    role: 'patient',
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  }
+]

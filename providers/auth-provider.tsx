@@ -82,17 +82,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         }
 
         // Try to get user roles
-        const { data: rolesData, error: rolesError } = await supabase
+        const rolesQuery = supabase
           .from('user_roles')
           .select('role')
-          .eq('user_id', authUser.id)
+        
+        const { data: rolesData, error: rolesError } = await (rolesQuery as any).eq('user_id', authUser.id)
 
         if (rolesError) {
           console.error('Error fetching roles:', rolesError)
           // Assign default patient role if role fetch fails
           roles = ['patient']
         } else {
-          const fetchedRoles = rolesData?.map(r => r.role) || []
+          const fetchedRoles = rolesData?.map((r: any) => r.role) || []
           
           // If no roles found, try to assign default patient role safely
           if (fetchedRoles.length === 0) {
