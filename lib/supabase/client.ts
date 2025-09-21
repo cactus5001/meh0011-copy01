@@ -23,7 +23,11 @@ const createMockClient = () => ({
     signOut: () => Promise.resolve({ error: null })
   },
   from: () => ({
-    select: () => ({ data: [], error: new Error('Supabase not configured') }),
+    select: () => ({
+      eq: () => Promise.resolve({ data: [], error: new Error('Supabase not configured') }),
+      data: [],
+      error: new Error('Supabase not configured')
+    }),
     insert: () => ({ data: null, error: new Error('Supabase not configured') }),
     update: () => ({ data: null, error: new Error('Supabase not configured') }),
     delete: () => ({ data: null, error: new Error('Supabase not configured') }),
