@@ -1,0 +1,77 @@
+===============================================================================
+                        MANUAL AUTHENTICATION SETUP STEPS
+===============================================================================
+
+CRITICAL: You must manually create these accounts in Supabase Auth Dashboard
+before the seeding script will work properly.
+
+STEP 1: Access Supabase Dashboard
+----------------------------------
+1. Go to your Supabase project dashboard
+2. Navigate to "Authentication" → "Users" in the left sidebar
+3. Click "Add User" button
+
+STEP 2: Create Super Admin Account
+----------------------------------
+Email: admin@yourdomain.com (replace with your actual domain)
+Password: YourSecurePassword123! (replace with your secure password)
+Email Confirm: ✅ (mark as confirmed)
+
+STEP 3: Create Test Accounts
+-----------------------------
+Create these accounts one by one:
+
+1. Email: patient@test.com
+   Password: Test123!
+   Email Confirm: ✅
+
+2. Email: doctor@test.com
+   Password: Test123!
+   Email Confirm: ✅
+
+3. Email: clinic@test.com
+   Password: Test123!
+   Email Confirm: ✅
+
+4. Email: driver@test.com
+   Password: Test123!
+   Email Confirm: ✅
+
+5. Email: moderator@test.com
+   Password: Test123!
+   Email Confirm: ✅
+
+6. Email: admin@test.com
+   Password: Test123!
+   Email Confirm: ✅
+
+STEP 4: Run Fixed Database Seeding Script
+-------------------------------------------
+1. Go to Supabase Dashboard → "SQL Editor"
+2. Click "New Query"
+3. Copy the entire content from database_seeding_fixed.sql
+4. Click "Run" to execute the script
+5. Check the verification queries at the bottom for success confirmation
+
+STEP 5: Verify Setup
+--------------------
+1. Try logging in with patient@test.com / Test123!
+2. Check that you're redirected to patient dashboard
+3. Try admin@test.com / Test123! for admin access
+4. Verify pharmacy shows real medicines (not mock data)
+
+===============================================================================
+                              LOGIN CREDENTIALS
+===============================================================================
+
+After setup, use these credentials to test all roles:
+
+🔐 SUPER ADMIN: admin@yourdomain.com / YourSecurePassword123!
+🔐 TEST ADMIN: admin@test.com / Test123!
+🔐 PATIENT: patient@test.com / Test123!
+🔐 DOCTOR: doctor@test.com / Test123!
+🔐 CLINIC: clinic@test.com / Test123!
+🔐 DRIVER: driver@test.com / Test123!
+🔐 MODERATOR: moderator@test.com / Test123!
+
+===============================================================================
