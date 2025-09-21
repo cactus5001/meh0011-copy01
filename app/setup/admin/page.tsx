@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { supabase, isSupabaseConfigured } from '@/lib/supabase/client'
+import { AdminService } from '@/lib/supabase/admin'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
