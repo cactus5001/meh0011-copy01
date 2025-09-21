@@ -94,15 +94,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         } else {
           const fetchedRoles = rolesData?.map(r => r.role) || []
           
-          // If no roles found, try to assign default patient role
+          // If no roles found, try to assign default patient role safely
           if (fetchedRoles.length === 0) {
             try {
-              const { error: roleError } = await supabase
-                .from('user_roles')
-                .insert({
-                  user_id: authUser.id,
-                  role: 'patient'
-                })
+              // Use the secure function to assign patient role
+              const { error: roleError } = await supabase.rpc('assign_default_patient_role', {
+                p_user_id: authUser.id
+              })
 
               if (!roleError) {
                 roles = ['patient']
