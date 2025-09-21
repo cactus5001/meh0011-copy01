@@ -132,7 +132,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       setUserRoles(roles)
 
       // Role-based redirect
-      const primaryRole = roles[0]
+      // Prioritize admin roles for redirect
+      let primaryRole = roles[0]
+      if (roles.includes('super_admin')) {
+        primaryRole = 'super_admin'
+      } else if (roles.includes('admin')) {
+        primaryRole = 'admin'
+      } else if (roles.includes('moderator')) {
+        primaryRole = 'moderator'
+      }
+      
       const dashboardRoutes = {
         patient: '/dashboard/patient',
         doctor: '/dashboard/doctor',
